@@ -201,7 +201,7 @@ function DmCard({ name, invs }: { name: string; invs: SlimInvoice[] }) {
   const [copied, setCopied] = useState(false);
   const first = name.split(" ")[0];
   const oldest = Math.max(...invs.map(i => i.ageDays));
-  const currencies = [...new Set(invs.map(i => i.currency))];
+  const currencies = Array.from(new Set(invs.map(i => i.currency)));
   const totals = currencies.map(c => money(invs.filter(i => i.currency === c).reduce((s, i) => s + i.amount, 0), c)).join(" + ");
 
   const dmText = invs.length === 1
