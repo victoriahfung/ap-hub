@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { NextRequest, NextResponse } from "next/server";
 
 // Sends a Slack DM that appears to come from the AP team member who clicked Send.

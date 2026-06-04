@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { getAccessToken } from "@/lib/coupa";
 
+export const dynamic = "force-dynamic";
+
 // In-memory cache — departments are stable, no need to refetch every page load
 let cache: { departments: string[]; fetchedAt: number } | null = null;
 const CACHE_TTL_MS = 24 * 60 * 60 * 1000; // 24 hours
