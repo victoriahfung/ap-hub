@@ -353,7 +353,7 @@ export function computeHealth(
     dupMap.get(key)!.push(inv);
   }
   const duplicates: FinanceDashboardData["health"]["exceptions"]["duplicates"] = [];
-  for (const [, group] of dupMap) {
+  for (const [, group] of Array.from(dupMap)) {
     if (group.length < 2) continue;
     const dates = group.map(i => new Date(i.createdAt).getTime()).sort();
     if (dates[dates.length - 1] - dates[0] <= 30 * 86400000) {
