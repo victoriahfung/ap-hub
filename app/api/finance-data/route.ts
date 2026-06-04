@@ -33,7 +33,7 @@ export async function GET(req: NextRequest) {
     cache.day === today &&                          // same calendar day
     Date.now() - cache.fetchedAt < CACHE_TTL_MS;   // within 6 hours
 
-  if (cacheValid) {
+  if (cacheValid && cache) {
     return NextResponse.json({ ...cache.data, fromCache: true });
   }
 
